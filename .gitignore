@@ -1,28 +1,29 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+*.class
 
-# Precompiled Headers
-*.gch
-*.pch
+# Package Files #
+*.jar
+*.war
+*.ear
+.classpath
+.project
+.settings
+target
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+.target
+.texlipse
