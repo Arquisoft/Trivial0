@@ -12,7 +12,7 @@
 
     <modules>
         <module>extract</module>
-<!-- Other modules should be added here: <module>...</module> -->
+        <module>game</module>
     </modules>
 
     <build>
