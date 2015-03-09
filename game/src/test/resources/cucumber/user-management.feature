@@ -6,3 +6,12 @@ Scenario: Create first user
     Given there are no users
     When I create a user "Pepe" with password "Pepe12"
     Then The number of users is 1
+
+Scenario: Check that a user exists
+	Given a list of users:
+      | name    | password |
+      | pepe    | pepe12   |
+      | luis    | siul     |
+      | mari    | 2mmm2    |
+    When I login with name "luis" and password "siul"
+    Then I receive a welcome message

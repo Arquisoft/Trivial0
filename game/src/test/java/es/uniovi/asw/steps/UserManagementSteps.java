@@ -1,7 +1,9 @@
 package es.uniovi.asw.steps;
 
-import es.uniovi.asw.game.UserDb;
+import java.util.List;
 
+import es.uniovi.asw.game.User;
+import es.uniovi.asw.game.UserDb;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,7 +11,9 @@ import cucumber.api.PendingException;
 import static org.assertj.core.api.Assertions.*;
 
 public class UserManagementSteps {
-	UserDb users ;
+	 
+	private UserDb users ;
+	private Boolean loginValue;
 
 	@Given("^there are no users$")
 	public void there_are_no_users() throws Throwable {
@@ -25,4 +29,30 @@ public class UserManagementSteps {
 	public void the_number_of_users_is(int n) throws Throwable {
 	    assertThat(users.size()).isEqualTo(1);  
 	}
+	
+
+	@Given("^a list of users:$")
+	public void a_list_of_users(final List<User> userList) 
+			throws Throwable {
+		users = new UserDb();
+		for (User u : userList) {
+            users.addUser(u.name, u.password);
+        }
+	}
+	
+	@When("^I login with name \"(.+)\" and password \"(.+)\"$")
+	public void i_login_with_name_and_password(String name, String password) throws Throwable {
+		loginValue = users.login(name, password);
+	}
+	
+	@Then("^I receive a welcome message$")
+	public void i_receive_a_welcome_message() throws Throwable {
+		assertThat(loginValue).isEqualTo(true);
+	}
+
+	
+	public static class User {
+        private String name;
+        private String password;
+    }	
 }
