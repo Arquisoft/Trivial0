@@ -13,5 +13,11 @@ Scenario: Check that a user exists
       | pepe    | pepe12   |
       | luis    | siul     |
       | mari    | 2mmm2    |
-    When I login with name "luis" and password "siul"
+    When I login with name "pepe" and password "pepe12"
     Then I receive a welcome message
+
+Scenario: Login with empty users
+	Given there are no users
+    When I login with name "pepe" and password "pepe13"
+    Then I receive a failure message
+    

@@ -27,7 +27,7 @@ public class UserManagementSteps {
 
 	@Then("^The number of users is (\\d+)$")
 	public void the_number_of_users_is(int n) throws Throwable {
-	    assertThat(users.size()).isEqualTo(1);  
+	    assertThat(users.size()).isEqualTo(n);  
 	}
 	
 
@@ -50,6 +50,10 @@ public class UserManagementSteps {
 		assertThat(loginValue).isEqualTo(true);
 	}
 
+	@Then("^I receive a failure message$")
+	public void i_receive_a_failure_message() throws Throwable {
+		assertThat(loginValue).isEqualTo(false);
+	}	
 	
 	public static class User {
         private String name;

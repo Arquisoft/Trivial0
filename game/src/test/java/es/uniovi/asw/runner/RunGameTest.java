@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         format 		= { "pretty", "html:target/cucumber" },
         glue 		= "es.uniovi.asw.steps",
-        features 	= "classpath:cucumber/user-management.feature"
+        features 	= "classpath:cucumber/"
 )
 public class RunGameTest {
 }
